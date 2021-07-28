@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const userRoute = require('./routes/userRoute')
+const db = require("./config/db")
+
+db()
 
 app.use(express.json)
 
