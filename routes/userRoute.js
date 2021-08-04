@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router();
+const User = require("../models/userModel")
 
 router.post('/signup', async (req, res) => {
     res.send('Hello World!')
 
     let { firstName, lastName, email, password } = req.body;
 
-    const checkEmail = await URLSearchParams.findOne({ email });
+    const checkEmail = await User.findOne({ email });
 
     if (checkEmail) {
         return res.json({
